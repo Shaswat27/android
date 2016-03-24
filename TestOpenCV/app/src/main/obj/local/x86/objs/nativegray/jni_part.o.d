@@ -61,6 +61,12 @@ obj/local/x86/objs/nativegray/jni_part.o: jni/jni_part.cpp \
  /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/videoio/videoio_c.h \
  /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc.hpp \
  /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgproc.hpp \
+ /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/features2d/features2d.hpp \
+ /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/features2d.hpp \
+ /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/flann/miniflann.hpp \
+ /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/flann/defines.h \
+ /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/flann/config.h \
+ /home/shaswat/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream \
  jni/com_example_shaswat_testopencv_MainActivity.h
 
 /home/shaswat/Android/Sdk/ndk-bundle/platforms/android-15/arch-x86/usr/include/jni.h:
@@ -186,5 +192,17 @@ obj/local/x86/objs/nativegray/jni_part.o: jni/jni_part.cpp \
 /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc.hpp:
 
 /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgproc.hpp:
+
+/home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/features2d/features2d.hpp:
+
+/home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/features2d.hpp:
+
+/home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/flann/miniflann.hpp:
+
+/home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/flann/defines.h:
+
+/home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/flann/config.h:
+
+/home/shaswat/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream:
 
 jni/com_example_shaswat_testopencv_MainActivity.h:
