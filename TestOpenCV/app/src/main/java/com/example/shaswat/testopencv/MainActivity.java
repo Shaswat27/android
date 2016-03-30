@@ -1,9 +1,11 @@
 package com.example.shaswat.testopencv;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.SurfaceView;
+import android.view.View;
 import android.view.WindowManager;
 
 import org.opencv.android.BaseLoaderCallback;
@@ -14,10 +16,13 @@ import org.opencv.core.Mat;
 
 public class MainActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
 
-    public native int convertNativeGray(long matAddrRgba, long matAddrGray);
+    public native int convertNativeGray(long matAddrCurr, long matAddrPrev, long matAddrDisplay);
 
-    private Mat mRgba;
-    private Mat mGray;
+    private Mat mCurr;
+    private Mat mPrev;
+    private Mat mDisplay;
+    private int firstRun = 1;
+    private int controlFrameRate = 0;
 
     private CameraBridgeViewBase mOpenCvCameraView;
     private static final String TAG = "OCVSample::SDK";
@@ -74,17 +79,42 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
     }
 
     public void onCameraViewStarted(int width, int height) {
-        mRgba = new Mat();
-        mGray = new Mat();
+        mCurr = new Mat();
+        mPrev = new Mat();
+        mDisplay = new Mat();
     }
 
     public void onCameraViewStopped() {
     }
 
     public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
-        mRgba = inputFrame.rgba();
-        convertNativeGray(mRgba.getNativeObjAddr(), mGray.getNativeObjAddr());
-        return mRgba;
+        /*if(this.controlFrameRate == 10000)
+        {
+            this.controlFrameRate = 0;
+        }*/
+
+        this.mCurr = inputFrame.rgba();
+
+        if(this.firstRun == 1) {
+            this.mPrev = inputFrame.rgba();
+            this.firstRun = 0;
+        }
+
+        if(this.firstRun == 0) {
+            this.mDisplay = this.mPrev;
+            convertNativeGray(mCurr.getNativeObjAddr(), mPrev.getNativeObjAddr(), mDisplay.getNativeObjAddr());
+        }
+
+        this.mPrev = this.mCurr;
+
+        //this.controlFrameRate = this.controlFrameRate + 1;
+
+        return mDisplay;
+    }
+
+    public void toggleIMUandCamera(View view) {
+            Intent intent = new Intent(this, IMUActivity.class);
+            startActivity(intent);
     }
 
 }

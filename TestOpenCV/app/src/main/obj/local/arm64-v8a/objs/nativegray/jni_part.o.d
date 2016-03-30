@@ -61,6 +61,7 @@ obj/local/arm64-v8a/objs/nativegray/jni_part.o: jni/jni_part.cpp \
  /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/flann/miniflann.hpp \
  /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/flann/defines.h \
  /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/flann/config.h \
+ /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/video/tracking.hpp \
  /home/shaswat/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/iostream \
  jni/com_example_shaswat_testopencv_MainActivity.h
 
@@ -187,6 +188,8 @@ obj/local/arm64-v8a/objs/nativegray/jni_part.o: jni/jni_part.cpp \
 /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/flann/defines.h:
 
 /home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/flann/config.h:
+
+/home/shaswat/OpenCV-android-sdk/sdk/native/jni/include/opencv2/video/tracking.hpp:
 
 /home/shaswat/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/iostream:
 
