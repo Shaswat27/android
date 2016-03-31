@@ -46,7 +46,7 @@ int drawTracks(Mat curr, Mat prev, Mat& display)
     std::vector <cv::KeyPoint> keypoints_prev;
 
     /// Detect features
-    FAST(gr_prev, keypoints_prev, 70);
+    FAST(gr_prev, keypoints_prev, 50);
 
     ///  Apply KLT Tracker
     if(keypoints_prev.size()>0) {
@@ -55,7 +55,19 @@ int drawTracks(Mat curr, Mat prev, Mat& display)
         std::vector <cv::Point2f> _prev, temp, next;
         KeyPoint key;
         key.convert(keypoints_prev, _prev);
-        calcOpticalFlowPyrLK(gr_prev, gr_next, _prev, temp, status, err);
+
+        if(_prev.size()>75)
+        {
+            std::vector<cv::Point2f>::const_iterator first = _prev.begin();
+            std::vector<cv::Point2f>::const_iterator last = _prev.begin() + 75;
+            std::vector<cv::Point2f> newVec(first, last);
+            _prev = newVec;
+        }
+
+        std::vector<cv::Mat> pyr_prev, pyr_next;
+        buildOpticalFlowPyramid(gr_prev, pyr_prev, Size(21,21), 3);
+        buildOpticalFlowPyramid(gr_next, pyr_next, Size(21,21), 3);
+        calcOpticalFlowPyrLK(pyr_prev, pyr_next, _prev, temp, status, err);
 
         ///display
         Mat disp;
